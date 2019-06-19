@@ -1,4 +1,4 @@
-FROM openjdk:8-slim
+FROM openjdk:8
 
 LABEL Description="This image provides a base Android development environment for ionic3, and may be used to run tests."
 LABEL maintainer="Nickbing Lao <giscafer@outlook.com>"
@@ -28,7 +28,6 @@ RUN apt-get update -qq && apt-get install -qq -y --no-install-recommends \
     file \
     git \
     gnupg2 \
-    openjdk-8-jre \
     python \
     unzip \
     && rm -rf /var/lib/apt/lists/*;
