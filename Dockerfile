@@ -68,9 +68,6 @@ RUN sdkmanager "system-images;android-19;google_apis;armeabi-v7a" \
     "add-ons;addon-google_apis-google-23" \
     "extras;android;m2repository"
 
-# clean up unnecessary directories
-RUN rm -rf /opt/android/.android
-
 
 # Install Cordova and Ionic
 RUN sudo npm update -g  \
@@ -85,5 +82,9 @@ RUN sudo curl https://downloads.gradle.org/distributions/gradle-$GRADLE_VERSION-
     && sudo unzip /tmp/gradle-$GRADLE_VERSION-bin.zip -d /tmp && rm /tmp/gradle-$GRADLE_VERSION-bin.zip \
     && sudo mv /tmp/gradle-$GRADLE_VERSION /opt/gradle \
     && PATH="/opt/gradle/bin:${PATH}" 
+
+# clean up unnecessary directories
+RUN rm -rf /opt/android/.android
+
 
 
